@@ -30,8 +30,8 @@ public class Wheel
 	public Wheel ChildWheel { get; private set; }
 
 	// We need to track the wheel's stance
-	private float _rotationLeftBound = -1f;
-	private float _rotationRightBound = 0f;
+	private float _rotationLeftBound = 0f;
+	private float _rotationRightBound = 1f;
 
 	/// <summary>
 	/// Creates a representation of an inner wheel from a safe, which rotates around the spindle. When every wheen is aligned, the safe can be unlocked after rotating clockwise.
