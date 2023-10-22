@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class WheelVisualisation : MonoBehaviour
 {
-	[Range(0, 359f)]
-	public float unlockRotation;
-	[Range(0, 360f)]
-	public float contactArea;
+	[Range(0, 359f)] public float unlockRotation;
+	[Range(0, 359f)] public float contactArea;
 	public Transform pointer;
+	public Transform unlockRotationIndicator;
 	public WheelVisualisation childWheelVisualisation;
 
 	public Wheel Wheel { get; private set; }
@@ -20,7 +19,9 @@ public class WheelVisualisation : MonoBehaviour
 		}
 
 		Wheel = new Wheel(unlockRotation / 360f, _childWheel, contactArea / 360f); // _childWheel is allowed to be null
+		unlockRotationIndicator.rotation = Quaternion.AngleAxis(Wheel.UnlockRotation * 360, Vector3.back);
 	}
+
 
 	public void Update()
 	{

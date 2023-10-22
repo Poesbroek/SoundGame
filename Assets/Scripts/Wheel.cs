@@ -1,5 +1,4 @@
 using JetBrains.Annotations;
-using UnityEngine;
 
 /// <summary>
 /// Represents an inner wheel from a safe, which rotates around the spindle. When every wheen is aligned, the safe can be unlocked after rotating clockwise.
@@ -37,7 +36,6 @@ public class Wheel
 	/// Creates a representation of an inner wheel from a safe, which rotates around the spindle. When every wheen is aligned, the safe can be unlocked after rotating clockwise.
 	/// </summary>
 	/// <param name="unlockRotation">The exact rotation at which the wheel is considered 'unlocked'. [0..1f)</param>
-	/// <param name="currentRotation">The rotation at which the wheel is currently at.</param>
 	/// <param name="contactArea">The total width of the 'notch' in the wheel, expressed in percentage of the wheel's circumference.
 	/// Whenever the CurrentRotation falls within this area with the unlockRotation, the wheel is considered 'unlocked'. (0..1f]</param>
 	/// <param name="childWheel">The wheel that is immediately turned/influenced by this wheel. If this is null, this wheel is the most outer wheel</param>
@@ -98,10 +96,21 @@ public class Wheel
 
 	public int NumberOfWheelsAligned => (ChildWheel != null ? ChildWheel.NumberOfWheelsAligned : 0) + (IsAligned ? 1 : 0);
 
+	public int NumberOfWheels => 1 + (ChildWheel != null ? ChildWheel.NumberOfWheels : 0);
+
 	public static float DegreeBetweenRevolutions(float rotation1, float rotation2)
 	{
 		var signedDelta = UnityEngine.Mathf.DeltaAngle(rotation1 % 1f * 360f, rotation2 % 1f * 360f);
-		return Mathf.Abs(signedDelta / 360f);
+		return UnityEngine.Mathf.Abs(signedDelta / 360f);
 		// TODO this whole method can be a lot faster
 	}
+
+	public static float RotationTowards(float currentRotation, float targetRotation, bool clockwise)
+		=> clockwise
+			? targetRotation >= currentRotation
+				? targetRotation - currentRotation
+				: 360f - currentRotation + targetRotation
+			: targetRotation <= currentRotation
+				? targetRotation - currentRotation
+				: -currentRotation - (360 - targetRotation);
 }

@@ -5,6 +5,7 @@ public class SafeDial : MonoBehaviour
 	public float rotationSensitivity;
 	[Range(0, 1)]
 	public float shiftSensitivityModifier;
+	public float[] wheelsStartingRotations;
 
 	public Transform pointer;
 	public WheelVisualisation innerWheelVisualisation;
@@ -15,7 +16,7 @@ public class SafeDial : MonoBehaviour
 	private void Start()
 	{
 		_innerWheel = innerWheelVisualisation.Wheel;
-		Safe        = new Safe(_innerWheel);
+		Safe        = new Safe(_innerWheel, wheelsStartingRotations);
 	}
 
 	private void Update()
