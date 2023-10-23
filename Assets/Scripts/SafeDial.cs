@@ -13,7 +13,7 @@ public class SafeDial : MonoBehaviour
 	public Safe Safe { get; set; }
 	private Wheel _innerWheel;
 
-	private void Start()
+	private void Awake()	
 	{
 		_innerWheel = innerWheelVisualisation.Wheel;
 		Safe        = new Safe(_innerWheel, wheelsStartingRotations);
@@ -21,12 +21,12 @@ public class SafeDial : MonoBehaviour
 
 	private void Update()
 	{
+		Debug.Log($"{gameObject.name} executed");
 		if (Safe.Unlocked)
 		{
 			Debug.Log("Safe is unlocked!");
 		}
-
-		Debug.Log($"Number of wheels aligned: {_innerWheel.NumberOfWheelsAligned}");
+        Debug.Log($"Number of wheels aligned: {_innerWheel.NumberOfWheelsAligned}");
 
 		float dialRotation = 0f;
 		if (Input.GetKey(KeyCode.LeftArrow))
