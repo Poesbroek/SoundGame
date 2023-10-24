@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WheelVisualisation : MonoBehaviour
 {
@@ -7,11 +8,12 @@ public class WheelVisualisation : MonoBehaviour
 	public Transform pointer;
 	public Transform unlockRotationIndicator;
 	public WheelVisualisation childWheelVisualisation;
+	public UnityEvent awakeFinished;
 
 	public Wheel Wheel { get; private set; }
 	private Wheel _childWheel;
 
-	public void Awake()
+	public void OnEnable()
 	{
 		if (childWheelVisualisation != null)
 		{
@@ -20,6 +22,7 @@ public class WheelVisualisation : MonoBehaviour
 
 		Wheel = new Wheel(unlockRotation / 360f, _childWheel, contactArea / 360f); // _childWheel is allowed to be null
 		unlockRotationIndicator.rotation = Quaternion.AngleAxis(Wheel.UnlockRotation * 360, Vector3.back);
+		awakeFinished?.Invoke();
 	}
 
 

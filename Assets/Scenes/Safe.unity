@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44658792, g: 0.49642283, b: 0.5748252, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -207,9 +207,45 @@ PrefabInstance:
       propertyPath: childWheelVisualisation
       value: 
       objectReference: {fileID: 1636628993}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1460355138}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4238889916053538849, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
       propertyPath: m_Name
       value: Wheel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238889916053538849, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7745953033986188593, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
       propertyPath: m_Pivot.x
@@ -296,6 +332,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+--- !u!1 &445615507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3641466547647833385, guid: cab9dc3086ee787a0bc77d85c28de0c1, type: 3}
+  m_PrefabInstance: {fileID: 3909688188791837564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,6 +645,38 @@ PrefabInstance:
       propertyPath: unlockRotation
       value: 106
       objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1498172133}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4238889916053538849, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
       propertyPath: m_Name
       value: Wheel (2)
@@ -703,12 +776,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
   m_PrefabInstance: {fileID: 1283052200141907437}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1460355138}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9ef3bba1e9048cda1bb99fcdaeeae6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1460355138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4238889916053538849, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+  m_PrefabInstance: {fileID: 1283052200141907437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1467400786 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7745953033986188593, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
@@ -719,12 +797,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
   m_PrefabInstance: {fileID: 107081795}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1498172133}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9ef3bba1e9048cda1bb99fcdaeeae6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1498172133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4238889916053538849, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+  m_PrefabInstance: {fileID: 107081795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1636628992 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7745953033986188593, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
@@ -757,9 +840,45 @@ PrefabInstance:
       propertyPath: childWheelVisualisation
       value: 
       objectReference: {fileID: 1467400787}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 445615507}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060134262454091773, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: awakeFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4238889916053538849, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
       propertyPath: m_Name
       value: Wheel (0)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238889916053538849, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7745953033986188593, guid: dd1619d521d996accad75a2c84a93a64, type: 3}
       propertyPath: m_Pivot.x
@@ -938,6 +1057,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dial
       objectReference: {fileID: 0}
+    - target: {fileID: 3641466547647833385, guid: cab9dc3086ee787a0bc77d85c28de0c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4507454151624340587, guid: cab9dc3086ee787a0bc77d85c28de0c1, type: 3}
       propertyPath: innerWheelVisualisation
       value: 
@@ -957,6 +1080,14 @@ PrefabInstance:
     - target: {fileID: 4507454151624340587, guid: cab9dc3086ee787a0bc77d85c28de0c1, type: 3}
       propertyPath: wheelsStartingRotations.Array.data[2]
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507454151624340587, guid: cab9dc3086ee787a0bc77d85c28de0c1, type: 3}
+      propertyPath: finishedAwake.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507454151624340587, guid: cab9dc3086ee787a0bc77d85c28de0c1, type: 3}
+      propertyPath: finishedAwake.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
