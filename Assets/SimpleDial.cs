@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SimpleDial : MonoBehaviour
 {
@@ -12,12 +13,11 @@ public class SimpleDial : MonoBehaviour
 
     [SerializeField] AudioClip click;
     [SerializeField] AudioClip altClick;
-    AudioSource audioSource;
+    [SerializeField] AudioSource clickSource;
 
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
+    [SerializeField] AudioSource ambienceSource;
+
+    [SerializeField] UnityEvent winEvent;
 
     void Update()
     {
@@ -40,21 +40,33 @@ public class SimpleDial : MonoBehaviour
         else if (currentNumber < 0)
             currentNumber = maxNumber - 1;
 
-        Debug.Log(currentNumber);
+        Debug.Log("Current digit: " + currentNumber);
 
         if (currentNumber == code[step])
         {
-            audioSource.PlayOneShot(altClick);
-            Debug.Log("Yes, good");
+            clickSource.PlayOneShot(altClick);
             step++;
+            Debug.Log("Moved on to step " + step);
             if (step >= code.Length)
-                Debug.Log("YOU DID IT!!!!!121111");
+            {
+                Debug.Log("The safe is open!");
+                winEvent.Invoke();
+            }
         }
         else
         {
-            audioSource.PlayOneShot(click);
+            clickSource.PlayOneShot(click);
         }
+
+        if (step == 2 && !ambienceSource.isPlaying)
+            StartCoroutine("constructionTimer");
     }
 
     private bool isEven(int n) => n % 2 == 0;
+
+    private IEnumerator constructionTimer()
+    {
+        yield return new WaitForSeconds(Random.Range(1.5f, 3f));
+        ambienceSource.Play();
+    }
 }
