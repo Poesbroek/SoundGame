@@ -10,6 +10,7 @@ public class SimpleDial : MonoBehaviour
 
     [SerializeField] int[] code;
     int step = 0;
+    int highestStep = 0;
 
     [SerializeField] AudioClip click;
     [SerializeField] AudioClip altClick;
@@ -50,6 +51,7 @@ public class SimpleDial : MonoBehaviour
             if (step >= code.Length)
             {
                 Debug.Log("The safe is open!");
+                StopAllCoroutines();
                 winEvent.Invoke();
             }
         }
@@ -58,15 +60,20 @@ public class SimpleDial : MonoBehaviour
             clickSource.PlayOneShot(click);
         }
 
-        if (step == 2 && !ambienceSource.isPlaying)
-            StartCoroutine("constructionTimer");
+        if (step > highestStep)
+        {
+            highestStep = step;
+
+            if (highestStep < code.Length)
+                StartCoroutine("constructionTimer");
+        }
     }
 
     private bool isEven(int n) => n % 2 == 0;
 
     private IEnumerator constructionTimer()
     {
-        yield return new WaitForSeconds(Random.Range(1.5f, 3f));
-        ambienceSource.Play();
+        yield return new WaitForSeconds(Random.Range(1.5f, 2.2f));
+        ambienceSource.volume += 0.25f;
     }
 }
