@@ -8,9 +8,10 @@ public class SimpleDial : MonoBehaviour
     int currentNumber = 0;
     [SerializeField] int maxNumber = 10;
 
-    [SerializeField] int[] code;
+    [SerializeField] int steps;
     int step = 0;
-    int highestStep = 0;
+    int highestStep = 0; // What is the furthest step the player has gotten to?
+    int[] code;
 
     [SerializeField] AudioClip click;
     [SerializeField] AudioClip altClick;
@@ -19,6 +20,11 @@ public class SimpleDial : MonoBehaviour
     [SerializeField] AudioSource ambienceSource;
 
     [SerializeField] UnityEvent winEvent;
+
+    private void Start()
+    {
+        code = GenerateCode(steps);
+    }
 
     void Update()
     {
@@ -30,10 +36,11 @@ public class SimpleDial : MonoBehaviour
 
     private void ChangeNumber(int delta)
     {
-        if (delta > 0 && !isEven(step))
+        if ((delta > 0 && !isEven(step)) || (delta < 0 && isEven(step) && step > 0))
+        {
             step--;
-        else if (delta < 0 && isEven(step) && step > 0)
-            step--;
+            Debug.Log("Moved down to step " + step);
+        }
 
         currentNumber += delta;
         if (currentNumber >= maxNumber)
@@ -47,7 +54,7 @@ public class SimpleDial : MonoBehaviour
         {
             clickSource.PlayOneShot(altClick);
             step++;
-            Debug.Log("Moved on to step " + step);
+            Debug.Log("Moved up to step " + step);
             if (step >= code.Length)
             {
                 Debug.Log("The safe is open!");
@@ -74,6 +81,15 @@ public class SimpleDial : MonoBehaviour
     private IEnumerator constructionTimer()
     {
         yield return new WaitForSeconds(Random.Range(1.5f, 2.2f));
-        ambienceSource.volume += 0.25f;
+        ambienceSource.volume += 1 / steps;
+    }
+
+    private int[] GenerateCode(int length)
+    {
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++)
+            result[i] = Random.Range(0, maxNumber);
+
+        return result;
     }
 }
