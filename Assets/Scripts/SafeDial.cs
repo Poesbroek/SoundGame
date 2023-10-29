@@ -22,6 +22,7 @@ public class SafeDial : MonoBehaviour
 	private void Update()
 	{
 		Debug.Log($"{gameObject.name} executed");
+
 		if (Safe.Unlocked)
 		{
 			Debug.Log("Safe is unlocked!");
@@ -42,8 +43,9 @@ public class SafeDial : MonoBehaviour
 			dialRotation *= shiftSensitivityModifier;
 		}
 
-		Safe.RotateDial(dialRotation * Time.deltaTime);
+		if (dialRotation == 0) return;
 
+		Safe.RotateDial(dialRotation * Time.deltaTime);
 		pointer.transform.rotation = Quaternion.AngleAxis(_innerWheel.CurrentRotation, Vector3.back);
 	}
 }

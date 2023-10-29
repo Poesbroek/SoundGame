@@ -2,6 +2,9 @@ using System;
 
 public class Safe
 {
+	public event EventHandler UnlockedEvent;
+	public event EventHandler<DialRotatedEventArgs> DialRotatedEvent;
+
 	/// <summary>
 	/// The most inner wheel, who turns all other wheels.
 	/// </summary>
@@ -54,10 +57,32 @@ public class Safe
 	/// </summary>
 	/// <param name="rotation">The rotation in degrees</param>
 	/// <returns>The number of wheels turned within this safe. Will be 1 or more.</returns>
-	public int RotateDial(float rotation) => _innerWheel.Rotate(rotation / 360f);
+	public int RotateDial(float rotation)
+	{
+		var wheelsRotated = _innerWheel.Rotate(rotation / 360f);
+
+		// Trigger events
+		DialRotatedEvent?.Invoke(this, new DialRotatedEventArgs(wheelsRotated));
+		if (Unlocked)
+		{
+			UnlockedEvent?.Invoke(this, EventArgs.Empty);
+		}
+
+		return wheelsRotated;
+	}
 
 	/// <summary>
 	/// The rotation of the innerWheel in degrees, which is the same as the imaginary dial of the safe.
 	/// </summary>
 	public float CurrentDialRotation => _innerWheel.CurrentRotation;
+}
+
+public class DialRotatedEventArgs : EventArgs
+{
+	public DialRotatedEventArgs(int wheelsRotated)
+	{
+		WheelsRotated = wheelsRotated;
+	}
+
+	public int WheelsRotated { get; }
 }
