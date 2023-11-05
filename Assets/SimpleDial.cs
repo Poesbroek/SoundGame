@@ -17,8 +17,6 @@ public class SimpleDial : MonoBehaviour
     [SerializeField] AudioClip altClick;
     [SerializeField] AudioSource clickSource;
 
-    [SerializeField] AudioSource ambienceSource;
-
     [SerializeField] UnityEvent winEvent;
 
     private void Start()
@@ -61,6 +59,7 @@ public class SimpleDial : MonoBehaviour
             {
                 Debug.Log("The safe is open!");
                 StopAllCoroutines();
+                Controller.c.constructionSource.Stop();
                 winEvent.Invoke();
             }
         }
@@ -83,9 +82,21 @@ public class SimpleDial : MonoBehaviour
 
     private IEnumerator constructionTimer()
     {
+        AudioSource source = Controller.c.constructionSource;
         yield return new WaitForSeconds(Random.Range(1.5f, 2.2f));
-        ambienceSource.volume += 1f / steps;
-        Debug.Log("Volume: " + ambienceSource.volume);
+
+        if (step < 2)
+            yield break;
+
+        if (!source.isPlaying)
+        {
+            source.Play();
+        }
+        else
+        {
+            source.volume += 1f / (steps - 2);
+            Debug.Log("Volume: " + source.volume);
+        }
     }
 
     private int[] GenerateCode(int length)

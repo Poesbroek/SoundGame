@@ -6,6 +6,8 @@ public class Controller : MonoBehaviour
 {
     public static Controller c;
 
+    public AudioSource constructionSource;
+
     private void Start()
     {
         c = this;
@@ -13,8 +15,6 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-
-
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
     }
