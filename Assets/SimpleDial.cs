@@ -49,9 +49,11 @@ public class SimpleDial : MonoBehaviour
             currentNumber = maxNumber - 1;
 
         Debug.Log("Current digit: " + currentNumber);
+        Debug.Log(step);
 
         if (currentNumber == code[step])
         {
+            clickSource.pitch = 1;
             clickSource.PlayOneShot(altClick);
             step++;
             Debug.Log("Moved up to step " + step);
@@ -64,6 +66,7 @@ public class SimpleDial : MonoBehaviour
         }
         else
         {
+            clickSource.pitch = 1 + step * 0.1f;
             clickSource.PlayOneShot(click);
         }
 
@@ -81,7 +84,8 @@ public class SimpleDial : MonoBehaviour
     private IEnumerator constructionTimer()
     {
         yield return new WaitForSeconds(Random.Range(1.5f, 2.2f));
-        ambienceSource.volume += 1 / steps;
+        ambienceSource.volume += 1f / steps;
+        Debug.Log("Volume: " + ambienceSource.volume);
     }
 
     private int[] GenerateCode(int length)
