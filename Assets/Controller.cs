@@ -11,6 +11,7 @@ public class Controller : MonoBehaviour
     private void Start()
     {
         c = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()

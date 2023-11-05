@@ -85,7 +85,8 @@ public class SimpleDial : MonoBehaviour
         AudioSource source = Controller.c.constructionSource;
         yield return new WaitForSeconds(Random.Range(1.5f, 2.2f));
 
-        if (step < 2)
+        int n = 1;
+        if (step < n)
             yield break;
 
         if (!source.isPlaying)
@@ -94,7 +95,7 @@ public class SimpleDial : MonoBehaviour
         }
         else
         {
-            source.volume += 1f / (steps - 2);
+            source.volume += 1f / (steps - n);
             Debug.Log("Volume: " + source.volume);
         }
     }
