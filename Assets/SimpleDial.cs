@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class SimpleDial : MonoBehaviour
 {
+    public static AllowedInput AllowedInput = AllowedInput.Left | AllowedInput.Right;
+    public bool playConstructorStuff;
+
     int currentNumber = 0;
     [SerializeField] int maxNumber = 10;
     [SerializeField] float startPitch = 1;
@@ -20,7 +24,7 @@ public class SimpleDial : MonoBehaviour
     [SerializeField] AudioSource clickSource;
 
     [SerializeField] UnityEvent winEvent;
-    [SerializeField] UnityEvent[] stepEvent;
+    public UnityEvent[] stepEvent;
 
     private void Start()
     {
@@ -30,9 +34,11 @@ public class SimpleDial : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (AllowedInput == 0) return;
+
+        if ((AllowedInput & AllowedInput.Right) != 0 && Input.GetKeyDown(KeyCode.RightArrow))
             ChangeNumber(1);
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if ((AllowedInput & AllowedInput.Left) != 0 & Input.GetKeyDown(KeyCode.LeftArrow))
             ChangeNumber(-1);
     }
 
@@ -79,7 +85,7 @@ public class SimpleDial : MonoBehaviour
         {
             highestStep = step;
 
-            if (highestStep < code.Length)
+            if (playConstructorStuff && highestStep < code.Length)
                 StartCoroutine("constructionTimer");
             if(step < stepEvent.Length) 
             {
@@ -124,4 +130,11 @@ public class SimpleDial : MonoBehaviour
 
         return result;
     }
+}
+
+[Flags]
+public enum AllowedInput
+{
+    Left = 1 << 0,
+    Right = 1 << 1
 }
