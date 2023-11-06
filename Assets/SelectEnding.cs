@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,7 +10,7 @@ public class SelectEnding : MonoBehaviour
     private void Awake()
     {
         float random = Random.Range(0, MemeEndingChance);
-        if (random != MemeEndingChance)
+        if (random > MemeEndingChance)
             normalEnding.Invoke();
         else 
             memeEnding.Invoke();
