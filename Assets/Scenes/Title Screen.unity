@@ -341,7 +341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f308ffb984bcef54db784517a88bf929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playing: 0
   constructionSource: {fileID: 1517390297}
 --- !u!4 &1517390299
 Transform:
@@ -484,6 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f9a2d07e1361b418773b91b7215c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  source: {fileID: 0}
 --- !u!4 &1835547000
 Transform:
   m_ObjectHideFlags: 0

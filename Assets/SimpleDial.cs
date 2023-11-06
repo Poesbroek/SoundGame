@@ -15,13 +15,16 @@ public class SimpleDial : MonoBehaviour
 
     [SerializeField] AudioClip click;
     [SerializeField] AudioClip altClick;
+    [SerializeField] AudioClip failedClick;
     [SerializeField] AudioSource clickSource;
 
     [SerializeField] UnityEvent winEvent;
+    [SerializeField] UnityEvent[] stepEvent;
 
     private void Start()
     {
         code = GenerateCode(steps);
+        stepEvent[0].Invoke();
     }
 
     void Update()
@@ -36,7 +39,8 @@ public class SimpleDial : MonoBehaviour
     {
         if ((delta > 0 && !isEven(step)) || (delta < 0 && isEven(step) && step > 0))
         {
-            step--;
+            step = 0;
+            clickSource.PlayOneShot(failedClick);
             Debug.Log("Moved down to step " + step);
         }
 
@@ -60,7 +64,7 @@ public class SimpleDial : MonoBehaviour
                 Debug.Log("The safe is open!");
                 StopAllCoroutines();
                 Controller.c.constructionSource.Stop();
-                winEvent.Invoke();
+                
             }
         }
         else
@@ -75,6 +79,10 @@ public class SimpleDial : MonoBehaviour
 
             if (highestStep < code.Length)
                 StartCoroutine("constructionTimer");
+            if(step < stepEvent.Length) 
+            {
+                stepEvent[step].Invoke();
+            }
         }
     }
 
