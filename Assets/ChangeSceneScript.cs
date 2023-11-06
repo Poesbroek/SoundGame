@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,19 +7,19 @@ using UnityEngine.SceneManagement;
 public class ChangeSceneScript : MonoBehaviour
 {
     [Header("Scene Settings")]
-    [SerializeField] private UnityEngine.SceneManagement.Scene Test;
+    [SerializeField] private string mainSceneName;
 
     void Start()
     {
-        if (!Application.CanStreamedLevelBeLoaded(Test.buildIndex))
+        if (!Application.CanStreamedLevelBeLoaded(mainSceneName))
         {
-            Debug.LogWarning(Test.name + " can't be found in the buildsettings");
+            Debug.LogWarning(mainSceneName + " can't be found in the buildsettings");
         }
     }
 
     public void ChangeMainSceneName(string newSceneName)
     {
-        //mainSceneName = newSceneName;
+        mainSceneName = newSceneName;
 
         if (!Application.CanStreamedLevelBeLoaded(newSceneName))
         {
@@ -28,12 +27,12 @@ public class ChangeSceneScript : MonoBehaviour
         }
     }
 
-     public void LoadScene()
+    public void LoadScene()
     {
-        //SceneManager.LoadScene(mainSceneName);
+        SceneManager.LoadScene(mainSceneName);
     }
 
-    static public void LoadSceneByName(string sceneName)
+    public void LoadSceneByName(string sceneName)
     {
         if (!Application.CanStreamedLevelBeLoaded(sceneName))
         {
@@ -42,21 +41,4 @@ public class ChangeSceneScript : MonoBehaviour
 
         SceneManager.LoadScene(sceneName);
     }
-
-    static public void LoadNextScene() 
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadSceneAsync(currentSceneIndex + 1);
-    }
-    public void LoadPreviousScene()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadSceneAsync(currentSceneIndex + 1);
-    }
-
-    public static void ReloadScene()
-    {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-    }
-
 }

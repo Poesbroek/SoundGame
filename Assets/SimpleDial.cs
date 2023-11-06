@@ -7,6 +7,7 @@ public class SimpleDial : MonoBehaviour
 {
     int currentNumber = 0;
     [SerializeField] int maxNumber = 10;
+    [SerializeField] float startPitch = 1;
 
     [SerializeField] int steps;
     int step = 0;
@@ -41,6 +42,7 @@ public class SimpleDial : MonoBehaviour
         {
             step = 0;
             clickSource.PlayOneShot(failedClick);
+            clickSource.pitch = startPitch;
             Debug.Log("Moved down to step " + step);
         }
 
@@ -69,7 +71,7 @@ public class SimpleDial : MonoBehaviour
         }
         else
         {
-            clickSource.pitch = 1 + step * 0.1f;
+            clickSource.pitch = startPitch + step * 0.1f;
             clickSource.PlayOneShot(click);
         }
 
@@ -111,8 +113,14 @@ public class SimpleDial : MonoBehaviour
     private int[] GenerateCode(int length)
     {
         int[] result = new int[length];
-        for (int i = 0; i < length; i++)
-            result[i] = Random.Range(0, maxNumber);
+        for (int i = 0; i < length; i++) 
+        { 
+            if(i == 0)
+                result[i] = Random.Range(3, maxNumber);
+            else 
+                result[i] = Random.Range(0, maxNumber);
+        }
+            
 
         return result;
     }
