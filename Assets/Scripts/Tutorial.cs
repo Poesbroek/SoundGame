@@ -38,6 +38,7 @@ public class Tutorial : MonoBehaviour
         yield return PlayNextAudio(); // Woosh
 
         // Load next scene
+        SimpleDial.AllowedInput = AllowedInput.Left | AllowedInput.Right;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
