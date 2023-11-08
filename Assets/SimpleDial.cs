@@ -122,7 +122,7 @@ public class SimpleDial : MonoBehaviour
         for (int i = 0; i < length; i++) 
         { 
             if(i == 0)
-                result[i] = Random.Range(3, maxNumber);
+                result[i] = Random.Range(0, maxNumber -3);
             else 
                 result[i] = Random.Range(0, maxNumber);
         }
