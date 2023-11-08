@@ -34,6 +34,9 @@ public class Tutorial : MonoBehaviour
 
         yield return PlayNextAudio();
 
+        yield return new WaitForSeconds(.4f);
+        yield return PlayNextAudio(); // Woosh
+
         // Load next scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
