@@ -251,7 +251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AudioSource: {fileID: 219648924}
-<<<<<<< HEAD
   m_WinClip: {fileID: 8300000, guid: b4ad781ed435344ec8bf6fa66e63c38b, type: 3}
   m_LoseClip: {fileID: 8300000, guid: e8241de5a26457a388aec8e4ec9df555, type: 3}
 --- !u!4 &219648926
