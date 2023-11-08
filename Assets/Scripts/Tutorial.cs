@@ -20,14 +20,15 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator TutorialFlow()
     {
+        SimpleDial.AllowedInput = 0;
         yield return PlayNextAudio(); // Woosh
 
         for (int i = 0; i < 3; i++) // Play audio, and wait until safe is cracked, three times
         {
-            SimpleDial.AllowedInput = 0;
             yield return PlayNextAudio();
             SimpleDial.AllowedInput = (AllowedInput)(i % 2 + 1);
             yield return new WaitUntil(() => _progress);
+            SimpleDial.AllowedInput = 0;
             _progress = false;
         }
 

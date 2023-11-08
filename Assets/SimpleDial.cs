@@ -44,7 +44,7 @@ public class SimpleDial : MonoBehaviour
 
     private void ChangeNumber(int delta)
     {
-        if ((delta > 0 && !isEven(step)) || (delta < 0 && isEven(step) && step > 0))
+        if ((delta > 0 && isEven(step)) || (delta < 0 && !isEven(step) && step > 0))
         {
             step = 0;
             clickSource.PlayOneShot(failedClick);
