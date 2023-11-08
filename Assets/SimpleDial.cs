@@ -70,6 +70,7 @@ public class SimpleDial : MonoBehaviour
             if (step >= code.Length)
             {
                 Debug.Log("The safe is open!");
+                winEvent.Invoke();
                 StopAllCoroutines();
                 Controller.c.constructionSource.Stop();
                 
