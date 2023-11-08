@@ -151,7 +151,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a7cd4e55c547b674fa4d25c46f570cc7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8159d261667e62947a11e8cba3dcacff, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -250,8 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AudioSource: {fileID: 219648924}
-  m_WinClip: {fileID: 8300000, guid: f1abb6ddd186f824fa87d1515f339f15, type: 3}
-  m_LoseClip: {fileID: 8300000, guid: a7cd4e55c547b674fa4d25c46f570cc7, type: 3}
+  m_WinClip: {fileID: 8300000, guid: 00fbf0ceb8d856c4aa319f370dbd37b0, type: 3}
+  m_LoseClip: {fileID: 8300000, guid: e8241de5a26457a388aec8e4ec9df555, type: 3}
 --- !u!4 &219648926
 Transform:
   m_ObjectHideFlags: 0
