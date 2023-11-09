@@ -8,6 +8,7 @@ public class TitleScreen : MonoBehaviour
 {
     public AudioClip ringtone;
     public AudioClip theTalk;
+    public GameObject InputInstructions;
 
     private bool _playing;
     private AudioSource _audioSource;
@@ -30,6 +31,7 @@ public class TitleScreen : MonoBehaviour
         if (Input.anyKeyDown) // Aside from Escape
         {
             _playing = true;
+            InputInstructions.SetActive(false);
             StartCoroutine(PickUpPhone());
         }
     }
@@ -37,6 +39,7 @@ public class TitleScreen : MonoBehaviour
     private IEnumerator PickUpPhone()
     {
         _audioSource.Stop();
+        _audioSource.volume = 0.8f;
         // TODO answer phone sound
         yield return new WaitForSeconds(1);
         _audioSource.PlayOneShot(theTalk);

@@ -85,8 +85,7 @@ public class SimpleDial : MonoBehaviour
         if (step > highestStep)
         {
             highestStep = step;
-
-            if (playConstructorStuff && highestStep < code.Length)
+            //if (playConstructorStuff && highestStep < code.Length)
                 //StartCoroutine("constructionTimer");
             if(step < stepEvent.Length) 
             {
